@@ -29,7 +29,7 @@ function update() {
         //  Stand still
         player.animations.stop();
 
-        player.frame = 4;
+        player.frame = 1;
     }
 
     //  Allow the player to jump if they are touching the ground.
