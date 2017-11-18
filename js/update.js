@@ -30,10 +30,15 @@ function update() {
         if(counter%100 == 0){
           console.log("plat created");
 
-          var badGuy = enemies.create(1200,300,'baddie',1);
-          badGuy.animations.add('left',[0,1],10,true);
-          badGuy.body.gravity.y = 300;
-          badGuy.body.velocity.x = -150;
+          //var badGuy = enemies.create(1200,300,'baddie',1);
+
+
+          //badGuy.animations.add('left',[0,1],10,true);
+          //badGuy.body.gravity.y = 300;
+          //badGuy.body.velocity.x = -150;
+
+
+
 
             var platform = platforms.create(500, 300,'ground');
 
