@@ -75,6 +75,7 @@ function create() {
     star.body.gravity.y = 300;
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.2;
+    star.scale.setTo(0.15, 0.15);
   }
 
   for (var i = 0; i < level * 10; i++) {
