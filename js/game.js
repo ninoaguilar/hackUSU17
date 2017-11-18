@@ -8,6 +8,9 @@ var stars;
 var score = 0;
 var scoreText;
 var enemies;
+var weapon;
+var fireButton;
+var straight = true;
 var level = 1;
 
 // Add game states
