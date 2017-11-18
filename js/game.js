@@ -11,6 +11,8 @@ var enemies;
 var weapon;
 var fireButton;
 var straight = true;
+var bullets = 10;
+var bulletText;
 
 // Add game states
 game.state.add('boot', bootState);

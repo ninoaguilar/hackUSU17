@@ -85,9 +85,10 @@ function create() {
     badGuy.body.velocity.x = -150;
 
   }
-  weapon = game.add.weapon(30, 'bullet', 5);
+  weapon = game.add.weapon(1000, 'bullet', 5);
 
   //weapon.fireFrom(300, 300);
+  weapon.fireRate = 200;
   weapon.bulletAngleOffset = 0;
 
   weapon.trackSprite(player, 10, 15, false);
@@ -104,6 +105,11 @@ function create() {
     fontSize: '32px',
     fill: '#000'
   });
+  bulletText = game.add.text(16, 60, 'Ammo: 10', {
+    fontsize: '60px',
+    fill: '#000'
+  });
+  bulletText.fixedToCamera = true;
   scoreText.fixedToCamera = true;
 
   //  Our controls.

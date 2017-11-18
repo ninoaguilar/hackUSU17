@@ -4,8 +4,8 @@ function collectStar(player, star) {
   star.kill();
 
   //  Add and update the score
-  score += 10;
-  scoreText.text = 'Score: ' + score;
+  bullets += 10;
+  bulletText.text = 'Ammo: ' + (bullets - weapon.shots);
 
 };
 
@@ -14,6 +14,7 @@ function kill(bullet, enemy) {
   // Removes the star from the screen
   enemy.kill();
   bullet.kill();
+
 
   //  Add and update the score
   score += 10;
