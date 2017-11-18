@@ -24,20 +24,24 @@ function updatePlayer() {
       player.body.velocity.x = 150;
     }else{
       counter+=1;
-      if(counter%100 == 0){
+      if(counter % 50 == 0){
         count = 1;
 
         var badGuy = enemies.create(1200,300,'baddie',1);
         badGuy.animations.add('left',[0,1],10,true);
         badGuy.body.gravity.y = 300;
         badGuy.body.velocity.x = -150;
-        
+
         enemies.forEach(function(enemy){
           enemy.animations.play('left');
           if(enemy.position.x < 0){
             enemy.kill();
           }
         },this)
+      }
+      if(counter % 200 == 0){
+        var plat = platforms.create(1200,  Math.floor(Math.random() * 20) + 300, 'ground');
+        
       }
     }
       //  Move to the right
