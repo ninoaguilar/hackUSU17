@@ -25,7 +25,15 @@ function kill(bullet, enemy) {
 function loseLife(player, enemies) {
   //player.body.reset();
   lives--;
-  livesRemaining.getFirst().kill();
+  enemies.kill();
+  var dead = livesRemaining.getFirstAlive();
+  if (dead != null) {
+    dead.kill();
+  } else {
+    game.state.start('lose');
+  }
+
+
 }
 
 

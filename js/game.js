@@ -14,6 +14,7 @@ var straight = true;
 var bullets = 10;
 var bulletText;
 var level = 1;
+var livesRemaining;
 var lives = 3;
 
 // Add game states
