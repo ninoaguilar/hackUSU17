@@ -86,6 +86,7 @@ function create() {
     badGuy.body.velocity.x = -150;
 
   }
+
   weapon = game.add.weapon(30, 'bullet', 5);
 
   //weapon.fireFrom(300, 300);
@@ -99,6 +100,15 @@ function create() {
   //Follow the player
   game.camera.follow(player);
   player.bringToTop();
+
+  livesRemaining = game.add.group();
+
+  for (var i = 0; i < lives; i++) {
+    var life = livesRemaining.create(i * 40 + 20, 50, 'life');
+  }
+
+  livesRemaining.fixedToCamera = true;
+
 
   //  The score
   scoreText = game.add.text(16, 16, 'score: 0', {

@@ -21,6 +21,12 @@ function kill(bullet, enemy) {
 
 };
 
+function loseLife(player, enemies) {
+  //player.body.reset();
+  lives--;
+  livesRemaining.getFirst().kill();
+}
+
 
 
 function kickBlock(player, block) {

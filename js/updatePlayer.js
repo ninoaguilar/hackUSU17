@@ -4,7 +4,7 @@ function updatePlayer() {
   game.physics.arcade.collide(player, platforms);
   game.physics.arcade.collide(stars, platforms);
   game.physics.arcade.collide(enemies, platforms);
-  game.physics.arcade.collide(player, enemies);
+  //game.physics.arcade.collide(player, enemies);
   game.physics.arcade.collide(platforms, blocks);
   game.physics.arcade.collide(player, blocks);
   game.physics.arcade.collide(blocks, blocks);
@@ -14,6 +14,7 @@ function updatePlayer() {
   game.physics.arcade.overlap(player, stars, collectStar, null, this);
   game.physics.arcade.overlap(player, blocks, kickBlock, null, this);
   game.physics.arcade.overlap(weapon.bullets, enemies, kill, null, this);
+  game.physics.arcade.overlap(player, enemies, loseLife, null, this);
 
   // Check to see if the player overlaps with any of diamond, if he does you win!
   if (checkOverlap(player, prize)) {
@@ -21,6 +22,7 @@ function updatePlayer() {
   }
 
   var quitKey = game.input.keyboard.addKey(Phaser.Keyboard.Q);
+
   quitKey.onDown.addOnce(function() {
     game.state.start('lose');
   });

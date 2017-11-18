@@ -6,5 +6,6 @@ function preload() {
   game.load.image('diamond', 'assets/diamond.png');
   game.load.image('block', 'assets/block.png');
   game.load.image('bullet', 'assets/bullet.png');
+  game.load.image('life', 'assets/heart.png')
   game.load.spritesheet('luigi', 'assets/new.png', 16, 18, 11);
 };

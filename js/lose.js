@@ -18,6 +18,7 @@ var loseState = {
   },
 
   restart: function() {
+    lives = 3;
     game.state.start('menu');
   },
 }

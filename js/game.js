@@ -12,6 +12,7 @@ var weapon;
 var fireButton;
 var straight = true;
 var level = 1;
+var lives = 3;
 
 // Add game states
 game.state.add('boot', bootState);

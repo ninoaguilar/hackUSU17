@@ -21,6 +21,7 @@ var winState = {
   },
 
   restart: function() {
+    lives = 3;
     game.state.start('play');
   },
 }
