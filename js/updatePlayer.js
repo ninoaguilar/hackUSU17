@@ -10,7 +10,9 @@ function updatePlayer() {
   game.physics.arcade.overlap(player, stars, collectStar, null, this);
 
   // Check to see if the player overlaps with any of diamond, if he does you win!
-  game.physics.arcade.overlap(player, prize, game.state.start('win'), null, this);
+  if (checkOverlap(player, prize)) {
+    game.state.start('win');
+  }
 
   //  Reset the players velocity (movement)
   player.body.velocity.x = 0;
@@ -83,4 +85,13 @@ function updateEnemies() {
       enemy.kill();
     }
   }, this)
+};
+
+function checkOverlap(spriteA, spriteB) {
+
+  var boundsA = spriteA.getBounds();
+  var boundsB = spriteB.getBounds();
+
+  return Phaser.Rectangle.intersects(boundsA, boundsB);
+
 };
