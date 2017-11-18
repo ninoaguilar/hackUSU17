@@ -27,7 +27,7 @@ function create() {
   //  Now let's create random ledges
   for (var i = 0; i < 7; i++) {
     var ledge = platforms.create(randomIntBetween(0, game.world.width),
-      randomIntBetween(50, game.world.height - 85), 'ground');
+      randomIntBetween(100, game.world.height - 85), 'ground');
     ledge.body.immovable = true;
   }
 
@@ -46,7 +46,7 @@ function create() {
   player.scale.setTo(2, 2);
 
   prize = game.add.sprite(randomIntBetween(game.world.width - 1000, game.world.width - 100),
-    randomIntBetween(game.world.height - 400, 0), 'diamond', 12);
+    randomIntBetween(0, 100), 'diamond', 12);
 
   easterEgg = game.add.sprite(randomIntBetween(0, game.world.width), 560, 'egg');
   easterEgg.enableBody = true;
@@ -83,14 +83,14 @@ function create() {
     star.scale.setTo(0.1, 0.1);
   }
 
-  //for (var i = 0; i < level * 5; i++) {
-  //  var badGuy = enemies.create(randomIntBetween(100, game.world.width), 0, //'baddie');
-  //  badGuy.scale.setTo(.75, .75);
-  //  badGuy.animations.add('left', [18, 19, 20], 13, true);
-  //  badGuy.animations.add('right', [30, 31, 32], 13, true);
-  //  badGuy.body.gravity.y = 300;
-  //  badGuy.body.velocity.x = randomIntBetween(-200, 200);
-  //}
+  for (var i = 0; i < level * 5; i++) {
+    var badGuy = enemies.create(randomIntBetween(100, game.world.width), 0, 'baddie');
+    badGuy.scale.setTo(.75, .75);
+    badGuy.animations.add('left', [18, 19, 20], 13, true);
+    badGuy.animations.add('right', [30, 31, 32], 13, true);
+    badGuy.body.gravity.y = 300;
+    badGuy.body.velocity.x = randomIntBetween(-200, 200);
+  }
 
   weapon = game.add.weapon(bullets, 'bullet');
 
