@@ -9,4 +9,7 @@ var playState = {
   Win: function() {
     game.state.start('win');
   },
+  Lose: function() {
+    game.state.start('lose');
+  }
 }

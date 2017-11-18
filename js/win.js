@@ -1,12 +1,16 @@
 var winState = {
   create: function() {
-    var winLabel = game.add.text(80, 60, 'YOU WIN!', {
-      font: '50px Arial',
+    var winLabel = game.add.text(200, 60, 'YOU WIN!', {
+      font: '100px Arial',
       fill: '#00FF00'
     });
+    winLabel.fontWeight = 'bold';
+    winLabel.stroke = '#fff';
+    winLabel.strokeThickness = 6;
 
-    var startLabel = game.add.text(80, game.world.height - 80,
-      'Press the "S" key to restart', {
+    level += 1;
+    var startLabel = game.add.text(300, 400,
+      'Press the "S" key to start level ' + level, {
         font: '25px Arial',
         fill: '#ffffff'
       });
@@ -17,6 +21,6 @@ var winState = {
   },
 
   restart: function() {
-    game.state.start('menu');
+    game.state.start('play');
   },
 }

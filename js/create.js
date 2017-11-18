@@ -30,7 +30,7 @@ function create() {
     ledge.body.immovable = true;
   }
 
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 2; i++) {
     var block = blocks.create(randomIntBetween(50, game.world.width - 500),
       game.world.height - 150, 'block', 12);
     block.body.bounce.y = 0.2;
@@ -44,7 +44,8 @@ function create() {
   player = game.add.sprite(32, game.world.height - 150, 'luigi', 12);
   player.scale.setTo(2, 2);
 
-  prize = game.add.sprite(game.world.width - 50, game.world.height - 160, 'diamond', 12);
+  prize = game.add.sprite(randomIntBetween(game.world.width - 1000, game.world.width - 100),
+    randomIntBetween(game.world.height - 400, 0), 'diamond', 12);
 
   //  We need to enable physics on the player
   game.physics.arcade.enable(player);
@@ -69,7 +70,7 @@ function create() {
   //  Here we'll create 12 of them evenly spaced apart
   for (var i = 0; i < 14; i++) {
     //  Create a star inside of the 'stars' group
-    var star = stars.create(i * 75, 0, 'star');
+    var star = stars.create(randomIntBetween(0, game.world.width), 0, 'star');
 
     //  Let gravity do its thing
     star.body.gravity.y = 300;
