@@ -22,6 +22,11 @@ function updatePlayer() {
     game.state.start('win');
   }
 
+  if (checkOverlap(player, easterEgg)) {
+    score += 200;
+    game.state.start('win');
+  }
+
   if (player.body.touching.bottom && enemies.body.touching.top) {
     enemies.kill();
   }

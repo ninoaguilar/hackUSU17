@@ -8,15 +8,18 @@ var menuState = {
       fill: '#fff',
     });
     nameLabel.fontWeight = 'bold';
-    nameLabel.stroke = '#4a9600';
-    nameLabel.strokeThickness = 6;
+    nameLabel.stroke = '#000';
+    nameLabel.strokeThickness = 10;
 
     //Instructions to start
     var startLabel = game.add.text(350, 250,
-      'INSTRUCTIONS: \n \t Arrow Keys: Move \n \t"K": Lift Blocks \n\t "F": Fire Shots', {
+      'INSTRUCTIONS: \n \t Arrow Keys: Move \n \t"K": Interact with Trampoline \n\t "F": Fire Shots', {
         font: '25px Arial',
         fill: '#fff'
       });
+
+    startLabel.stroke = '#000';
+    startLabel.strokeThickness = 5;
 
     //Instructions to start
     var startLabel = game.add.text(350, 500,
@@ -24,6 +27,9 @@ var menuState = {
         font: '25px Arial',
         fill: '#fff'
       });
+
+    startLabel.stroke = '#095d0d';
+    startLabel.strokeThickness = 6;
 
     //Set 'W' to be the start key
     var startKey = game.input.keyboard.addKey(Phaser.Keyboard.S);

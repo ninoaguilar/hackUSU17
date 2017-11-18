@@ -16,6 +16,9 @@ var winState = {
         fill: '#ffffff'
       });
 
+    startLabel.stroke = '#095d0d';
+    startLabel.strokeThickness = 6;
+
     var startKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
 
     startKey.onDown.addOnce(this.restart, this);

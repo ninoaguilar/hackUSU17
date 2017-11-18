@@ -47,6 +47,10 @@ function create() {
   prize = game.add.sprite(randomIntBetween(game.world.width - 1000, game.world.width - 100),
     randomIntBetween(game.world.height - 400, 0), 'diamond', 12);
 
+  easterEgg = game.add.sprite(randomIntBetween(0, game.world.width), 560, 'egg');
+  easterEgg.enableBody = true;
+  easterEgg.bringToTop();
+
   //  We need to enable physics on the player
   game.physics.arcade.enable(player);
 
@@ -77,7 +81,7 @@ function create() {
     star.body.bounce.y = 0.2;
   }
 
-  for (var i = 0; i < level * 10; i++) {
+  for (var i = 0; i < level * 5; i++) {
     var badGuy = enemies.create(randomIntBetween(100, game.world.width), 0, 'baddie');
 
     badGuy.animations.add('left', [0, 1], 10, true);
@@ -111,17 +115,24 @@ function create() {
 
 
   //  The score
-  scoreText = game.add.text(16, 16, 'score: 0', {
+  scoreText = game.add.text(16, 16, 'score:' + score, {
     fontSize: '32px',
     fill: '#000'
   });
+
   bulletText = game.add.text(16, 60, 'Ammo:' + bullets, {
     fontsize: '60px',
     fill: '#000'
   });
 
+  quitText = game.add.text(16, game.world.height - 45, "Press 'q' to quit", {
+    fontSize: '32px',
+    fill: '#00'
+  });
+
   bulletText.fixedToCamera = true;
   scoreText.fixedToCamera = true;
+  quitText.fixedToCamera = true;
 
   //  Our controls.
   cursors = game.input.keyboard.createCursorKeys();
