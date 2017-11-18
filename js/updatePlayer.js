@@ -20,6 +20,11 @@ function updatePlayer() {
     game.state.start('win');
   }
 
+  var quitKey = game.input.keyboard.addKey(Phaser.Keyboard.Q);
+  quitKey.onDown.addOnce(function() {
+    game.state.start('lose');
+  });
+
   //  Reset the players velocity (movement)
   player.body.velocity.x = 0;
 

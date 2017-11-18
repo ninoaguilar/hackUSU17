@@ -13,13 +13,14 @@ var fireButton;
 var straight = true;
 var bullets = 10;
 var bulletText;
-
+var level = 1;
 // Add game states
 game.state.add('boot', bootState);
 game.state.add('load', loadState);
 game.state.add('menu', menuState);
 game.state.add('play', playState);
 game.state.add('win', winState);
+game.state.add('lose', loseState);
 
 
 //Start the game using the boot state
