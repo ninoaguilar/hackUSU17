@@ -32,13 +32,14 @@ function create() {
   }
 
   for (var i = 0; i < 2; i++) {
-    var block = blocks.create(randomIntBetween(50, game.world.width - 500),
+    block = blocks.create(randomIntBetween(50, game.world.width - 500),
       game.world.height - 150, 'block', 12);
     block.body.gravity.y = 400;
     block.body.collideWorldBounds = true;
     block.body.drag.x = 50;
     block.body.allowRotation = true;
   }
+
 
   // The player and its settings
   player = game.add.sprite(32, game.world.height - 150, 'luigi', 12);
@@ -79,7 +80,7 @@ function create() {
     star.body.gravity.y = 300;
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.2;
-    star.scale.setTo(0.15, 0.15);
+    star.scale.setTo(0.1, 0.1);
   }
 
   for (var i = 0; i < level * 5; i++) {

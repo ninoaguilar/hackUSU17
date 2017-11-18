@@ -23,7 +23,7 @@ function updatePlayer() {
   }
 
   if (checkOverlap(player, easterEgg)) {
-    score += 200;
+    score += 200
     game.state.start('win');
   }
 
