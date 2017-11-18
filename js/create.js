@@ -25,11 +25,11 @@ function create() {
   ground.body.immovable = true;
 
   //  Now let's create two ledges
-  var ledge = platforms.create(400, 400, 'ground');
-  ledge.body.immovable = true;
+  //var ledge = platforms.create(400, 400, 'ground');
+  //ledge.body.immovable = true;
 
-  ledge = platforms.create(-150, 250, 'ground');
-  ledge.body.immovable = true;
+  //ledge = platforms.create(-150, 250, 'ground');
+  //  ledge.body.immovable = true;
 
   // The player and its settings
   player = game.add.sprite(32, game.world.height - 150, 'luigi', 12);
@@ -50,8 +50,10 @@ function create() {
   player.animations.add('left', [6, 7, 8], 5, true);
   player.animations.add('right', [9, 10, 11], 5, true);
 
-  //  Finally some stars to collect
-  stars = game.add.group();
+  //  We will enable physics for any star that is created in this group
+  stars.enableBody = true;
+  enemies.enableBody = true;
+  //platforms.enableBody = true;
 
   //  We will enable physics for any star that is created in this group
   stars.enableBody = true;
