@@ -50,10 +50,14 @@ function create() {
   player.animations.add('left', [6, 7, 8], 5, true);
   player.animations.add('right', [9, 10, 11], 5, true);
 
+  //  Finally some stars to collect
+  stars = game.add.group();
+
   //  We will enable physics for any star that is created in this group
   stars.enableBody = true;
   enemies.enableBody = true;
   //platforms.enableBody = true;
+
 
   //  We will enable physics for any star that is created in this group
   stars.enableBody = true;
