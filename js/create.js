@@ -25,21 +25,20 @@ function create() {
   ground.body.immovable = true;
 
   //  Now let's create two ledges
-  //var ledge = platforms.create(400, 400, 'ground');
-  //ledge.body.immovable = true;
+  var ledge = platforms.create(400, 400, 'ground');
+  ledge.body.immovable = true;
 
-  //ledge = platforms.create(-150, 250, 'ground');
-  //  ledge.body.immovable = true;
+  ledge = platforms.create(-150, 250, 'ground');
+  ledge.body.immovable = true;
 
   // The player and its settings
   player = game.add.sprite(32, game.world.height - 150, 'luigi', 12);
   player.scale.setTo(2, 2);
 
-  prize = game.add.sprite(200, game.world.height - 160, 'diamond', 12);
+  prize = game.add.sprite(game.world.width - 50, game.world.height - 160, 'diamond', 12);
 
   //  We need to enable physics on the player
   game.physics.arcade.enable(player);
-  game.physics.arcade.enable(prize);
 
   //  Player physics properties. Give the little guy a slight bounce.
   player.body.bounce.y = 0;
@@ -74,6 +73,15 @@ function create() {
 
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.2;
+  }
+
+  ledges = game.add.group();
+  ledges.enableBody = true;
+
+  for (var i = 0; i < 7; i++) {
+    var ledge = platforms.create(randomIntBetween(0, game.world.width),
+      randomIntBetween(50, game.world.height - 80), 'ground');
+    ledge.body.immovable = true;
   }
 
   //Follow the player

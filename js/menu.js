@@ -1,7 +1,7 @@
 var menuState = {
   create: function() {
     //Name of the game
-    var nameLabel = game.add.text(80, 80, 'My First game', {
+    var nameLabel = game.add.text(80, 80, 'Bario The Game', {
       font: '50px Arial',
       fill: '#fff'
     });

@@ -47,11 +47,8 @@ function updatePlayer() {
         var platform = platforms.create(1200, Math.floor(Math.random() * 20) + 300, 'ground');
 
         platform.body.immovable = true;
-
       }
-
     }
-
 
     player.animations.play('right');
     //  Move to the right
@@ -68,8 +65,6 @@ function updatePlayer() {
     player.body.velocity.y = -350;
   }
 }
-
-
 
 function updatePlatforms() {
   platforms.forEach(function(platform) {
