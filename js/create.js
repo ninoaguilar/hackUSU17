@@ -2,7 +2,8 @@ function create() {
   // Make our game world bigger than the canvas
   game.world.setBounds(0, 0, 2000, 600)
   //  A simple background for our game
-  game.stage.backgroundColor = "#77b5fe";
+  game.add.image(0, 0, 'sky');
+
 
   //  The platforms group contains the ground and the random ledges we can jump on
   platforms = game.add.group();
@@ -35,7 +36,7 @@ function create() {
       game.world.height - 150, 'block', 12);
     block.body.gravity.y = 400;
     block.body.collideWorldBounds = true;
-    block.body.drag.x = 100;
+    block.body.drag.x = 50;
     block.body.allowRotation = true;
   }
 
@@ -70,29 +71,29 @@ function create() {
   for (var i = 0; i < 14; i++) {
     //  Create a star inside of the 'stars' group
     var star = stars.create(randomIntBetween(0, game.world.width), 0, 'star');
-
     //  Let gravity do its thing
     star.body.gravity.y = 300;
-
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.2;
   }
+
   for (var i = 0; i < level * 10; i++) {
     var badGuy = enemies.create(randomIntBetween(100, game.world.width), 0, 'baddie');
 
     badGuy.animations.add('left', [0, 1], 10, true);
     badGuy.body.gravity.y = 300;
-    badGuy.body.velocity.x = -150;
+    badGuy.body.velocity.x = randomIntBetween(-200, 200);
   }
 
-  weapon = game.add.weapon(30, 'bullet');
+  weapon = game.add.weapon(bullets, 'bullet');
 
   //weapon.fireFrom(300, 300);
   weapon.fireRate = 200;
+  weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
   weapon.bulletAngleOffset = 0;
 
   weapon.trackSprite(player, 10, 15, false);
-  fireKey = game.input.keyboard.addKey(Phaser.Keyboard.F);
+
   ledges = game.add.group();
   ledges.enableBody = true;
 
@@ -114,10 +115,11 @@ function create() {
     fontSize: '32px',
     fill: '#000'
   });
-  bulletText = game.add.text(16, 60, 'Ammo: 10', {
+  bulletText = game.add.text(16, 60, 'Ammo:' + bullets, {
     fontsize: '60px',
     fill: '#000'
   });
+
   bulletText.fixedToCamera = true;
   scoreText.fixedToCamera = true;
 

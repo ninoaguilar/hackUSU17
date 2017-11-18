@@ -4,10 +4,11 @@ function updatePlayer() {
   game.physics.arcade.collide(player, platforms);
   game.physics.arcade.collide(stars, platforms);
   game.physics.arcade.collide(enemies, platforms);
-  game.physics.arcade.collide(enemies, enemies);
+  game.physics.arcade.collide(enemies);
   game.physics.arcade.collide(platforms, blocks);
   game.physics.arcade.collide(player, blocks);
-  game.physics.arcade.collide(blocks, blocks);
+  game.physics.arcade.collide(enemies, blocks);
+  game.physics.arcade.collide(blocks);
 
 
   //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
@@ -21,6 +22,10 @@ function updatePlayer() {
     game.state.start('win');
   }
 
+  if (player.body.touching.bottom && enemies.body.touching.top) {
+    enemies.kill();
+  }
+
   var quitKey = game.input.keyboard.addKey(Phaser.Keyboard.Q);
 
   quitKey.onDown.addOnce(function() {
@@ -30,15 +35,9 @@ function updatePlayer() {
   //  Reset the players velocity (movement)
   player.body.velocity.x = 0;
 
-  if (fireKey.isDown) {
-    if (straight) {
-      weapon.fireAngle = Phaser.ANGLE_RIGHT;
-    } else {
-      weapon.fireAngle = Phaser.ANGLE_LEFT;
-    }
-    weapon.fire();
-    //console.log("weapon fired");
-  }
+  var fireKey = game.input.keyboard.addKey(Phaser.Keyboard.F);
+
+  fireKey.onDown.add(decreaseBullets);
 
   if (cursors.left.isDown) {
     straight = false;
@@ -59,30 +58,8 @@ function updatePlayer() {
   }
   //  Allow the player to jump if they are touching the ground.
   if (cursors.up.isDown && player.body.touching.down) {
-    player.body.velocity.y = -350;
+    player.body.velocity.y = -300;
   }
-  updateEnemies();
 
-  //player.animations.stop();
+  updateEnemies(randomIntBetween(0, 1000));
 }
-
-
-function updateEnemies() {
-  enemies.forEach(function(enemy) {
-    enemy.animations.play('left');
-    if (enemy.body.position.x < 0) {
-      enemy.body.velocity.x = 150;
-    } else if (enemy.body.position.x > 1000) {
-      enemy.body.velocity.x = -150;
-    }
-  }, this)
-};
-
-function checkOverlap(spriteA, spriteB) {
-
-  var boundsA = spriteA.getBounds();
-  var boundsB = spriteB.getBounds();
-
-  return Phaser.Rectangle.intersects(boundsA, boundsB);
-
-};

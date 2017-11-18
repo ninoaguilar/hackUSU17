@@ -1,7 +1,7 @@
 var menuState = {
   create: function() {
     //Name of the game
-    game.stage.backgroundColor = "#77b5fe";
+    game.add.image(0, 0, 'sky');
 
     var nameLabel = game.add.text(150, 80, 'Bario The Game', {
       font: '90px Arial',

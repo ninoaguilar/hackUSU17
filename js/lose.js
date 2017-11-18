@@ -1,15 +1,16 @@
 var loseState = {
   create: function() {
+    game.add.image(0, 0, 'sky');
     var winLabel = game.add.text(95, 100, 'SORRY, YOU LOSE', {
       font: '80px Arial',
-      fill: '#000'
+      fill: '#000',
     });
     winLabel.fontWeight = 'bold';
 
     var startLabel = game.add.text(210, 300,
       'Press the "S" key to try again', {
         font: '35px Arial',
-        fill: '#ffffff'
+        fill: '#ffffff',
       });
 
     var startKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
@@ -18,6 +19,7 @@ var loseState = {
   },
 
   restart: function() {
+    bullets = 10;
     lives = 3;
     game.state.start('menu');
   },

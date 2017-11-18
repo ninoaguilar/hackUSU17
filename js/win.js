@@ -1,5 +1,6 @@
 var winState = {
   create: function() {
+    game.add.image(0, 0, 'sky');
     var winLabel = game.add.text(200, 60, 'YOU WIN!', {
       font: '100px Arial',
       fill: '#00FF00'
