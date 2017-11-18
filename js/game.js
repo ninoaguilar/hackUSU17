@@ -1,5 +1,5 @@
 var game = new Phaser.Game(1000, 600, Phaser.AUTO, 'gameDiv');
-
+var blocks;
 var player;
 var platforms;
 var cursors;
@@ -7,6 +7,7 @@ var counter = 0;
 var stars;
 var score = 0;
 var scoreText;
+var kickKey;
 var enemies;
 var weapon;
 var fireButton;

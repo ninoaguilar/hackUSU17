@@ -40,9 +40,9 @@ function loseLife(player, enemies) {
 }
 
 function kickBlock(player, block) {
-  var kickKey = game.input.keyboard.addKey(Phaser.Keyboard.K);
 
-  kickKey.onDown.add(function() {
+
+  if (kickKey.isDown) {
     if (block.body.touching.down && block.body.touching.up && player.body.touching.down) {
       player.body.velocity.y = -500;
     }
@@ -52,7 +52,7 @@ function kickBlock(player, block) {
     if (block.body.touching.down && block.body.touching.right && player.body.touching.left) {
       block.body.velocity.y = -500;
     }
-  });
+  }
 };
 
 function updateEnemies(randomNumber) {
