@@ -15,7 +15,7 @@ function create() {
     game.world.setBounds(0,0, 2000, 600)
 
     //  A simple background for our game
-    game.add.sprite(0, 0, 'sky');
+    game.stage.backgroundColor = "#77b5fe";
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
@@ -71,7 +71,7 @@ function create() {
         star.body.gravity.y = 300;
 
         //  This just gives each star a slightly random bounce value
-        star.body.bounce.y = .2;
+        star.body.bounce.y = -1;
     }
 
     //Follow the player
@@ -79,7 +79,7 @@ function create() {
 
     //  The score
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
-
+    scoreText.fixedToCamera = true;
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
 
