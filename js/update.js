@@ -3,6 +3,8 @@ function update() {
     //  Collide the player and the stars with the platforms
     game.physics.arcade.collide(player, platforms);
     game.physics.arcade.collide(stars, platforms);
+    game.physics.arcade.collide(enemies,platforms);
+    game.physics.arcade.collide(player, enemies);
 
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
     game.physics.arcade.overlap(player, stars, collectStar, null, this);
@@ -19,8 +21,22 @@ function update() {
     }
     else if (cursors.right.isDown)
     {
-        //  Move to the right
+      if(player.position.x < 500){
         player.body.velocity.x = 150;
+      }else{
+        counter+=1;
+        if(counter%100 == 0){
+          count = 1;
+
+          var badGuy = enemies.create(1200,300,'baddie',1);
+          badGuy.animations.add('left',[0,1],10,true);
+          badGuy.body.gravity.y = 300;
+          badGuy.body.velocity.x = -150;
+          updateEnemies();
+        }
+      }
+        //  Move to the right
+
 
         player.animations.play('right');
     }
@@ -37,5 +53,16 @@ function update() {
     {
         player.body.velocity.y = -350;
     }
-
 }
+
+
+
+
+function updateEnemies(){
+  enemies.forEach(function(enemy){
+    enemy.animations.play('left');
+    if(enemy.position.x < 0){
+      enemy.kill();
+    }
+  },this)
+};

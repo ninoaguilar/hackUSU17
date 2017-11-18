@@ -1,5 +1,5 @@
 function preload() {
-
+    game.load.spritesheet('baddie','assets/baddie.png',32,30,4);
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
     game.load.image('star', 'assets/star.png');

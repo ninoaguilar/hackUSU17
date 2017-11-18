@@ -1,11 +1,11 @@
 var player;
 var platforms;
 var cursors;
-
+var counter = 0;
 var stars;
 var score = 0;
 var scoreText;
-
+var enemies;
 function create() {
 
     //  We're going to be using physics, so enable the Arcade Physics system
@@ -19,7 +19,7 @@ function create() {
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
-
+    enemies = game.add.group();
     //  We will enable physics for any object that is created in this group
     platforms.enableBody = true;
 
@@ -60,6 +60,7 @@ function create() {
 
     //  We will enable physics for any star that is created in this group
     stars.enableBody = true;
+    enemies.enableBody = true;
 
     //  Here we'll create 12 of them evenly spaced apart
     for (var i = 0; i < 14; i++)
@@ -71,11 +72,11 @@ function create() {
         star.body.gravity.y = 300;
 
         //  This just gives each star a slightly random bounce value
-        star.body.bounce.y = -1;
+        star.body.bounce.y = 0.2;
     }
 
     //Follow the player
-    game.camera.follow(player);
+    //game.camera.follow(player);
 
     //  The score
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
