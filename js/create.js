@@ -86,12 +86,8 @@ function create() {
     badGuy.body.velocity.x = -150;
 
   }
-<<<<<<< HEAD
 
   weapon = game.add.weapon(30, 'bullet', 5);
-=======
-  weapon = game.add.weapon(1000, 'bullet', 5);
->>>>>>> 125b9e69d94829286826c0029ee0b5e4b003d3e4
 
   //weapon.fireFrom(300, 300);
   weapon.fireRate = 200;
