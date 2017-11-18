@@ -6,16 +6,16 @@ function updatePlayer() {
   game.physics.arcade.collide(enemies, platforms);
   game.physics.arcade.collide(enemies);
   game.physics.arcade.collide(platforms, blocks);
-  game.physics.arcade.collide(player, blocks);
+  //game.physics.arcade.collide(player, blocks);
   game.physics.arcade.collide(enemies, blocks);
   game.physics.arcade.collide(blocks);
 
 
   //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
   game.physics.arcade.overlap(player, stars, collectStar, null, this);
-  game.physics.arcade.overlap(player, blocks, kickBlock, null, this);
+  game.physics.arcade.collide(player, blocks, kickBlock, null, this);
   game.physics.arcade.overlap(weapon.bullets, enemies, kill, null, this);
-  game.physics.arcade.overlap(player, enemies, loseLife, null, this);
+  game.physics.arcade.collide(player, enemies, loseLife, null, this);
 
   // Check to see if the player overlaps with any of diamond, if he does you win!
   if (checkOverlap(player, prize)) {
