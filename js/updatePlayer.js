@@ -31,13 +31,17 @@ function updatePlayer() {
   player.body.velocity.x = 0;
 
   if (fireKey.isDown) {
-    if (straight) {
-      weapon.fireAngle = Phaser.ANGLE_RIGHT;
-    } else {
-      weapon.fireAngle = Phaser.ANGLE_LEFT;
+    if (bullets - weapon.shots > -1) {
+
+      bulletText.text = "Ammo: " + (bullets - weapon.shots);
+      if (straight) {
+        weapon.fireAngle = Phaser.ANGLE_RIGHT;
+      } else {
+        weapon.fireAngle = Phaser.ANGLE_LEFT;
+      }
+      weapon.fire();
+      //console.log("weapon fired");
     }
-    weapon.fire();
-    //console.log("weapon fired");
   }
 
   if (cursors.left.isDown) {

@@ -11,9 +11,14 @@ var enemies;
 var weapon;
 var fireButton;
 var straight = true;
+var bullets = 10;
+var bulletText;
 var level = 1;
+<<<<<<< HEAD
 var lives = 3;
 
+=======
+>>>>>>> 125b9e69d94829286826c0029ee0b5e4b003d3e4
 // Add game states
 game.state.add('boot', bootState);
 game.state.add('load', loadState);
