@@ -60,6 +60,11 @@ function updateEnemies(randomNumber) {
     enemies.forEach(function(enemy) {
       enemy.animations.play('left');
       enemy.body.velocity.x = randomIntBetween(-200, 200)
+      if (enemy.body.velocity.x > 0) {
+        enemy.animations.play('right');
+      } else {
+        enemy.animations.play('left');
+      }
 
     }, this)
   }
