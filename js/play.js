@@ -1,15 +1,12 @@
 var playState = {
 
   create: function() {
-  game.state.start('create');
+    create();
   },
-
   update: function() {
-    game.state.start('updatePlayer');
-    //game.state.start('updateEnemies')
+    updatePlayer();
   },
-
   Win: function() {
     game.state.start('win');
-  }
+  },
 }

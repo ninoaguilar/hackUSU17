@@ -1,19 +1,19 @@
-var createState = {
-  create: function() {
+function create() {
     //  We're going to be using physics, so enable the Arcade Physics system
     //game.physics.startSystem(Phaser.Physics.ARCADE);
 
     // Make our game world bigger than the canvas
     game.world.setBounds(0,0, 2000, 600)
-
     //  A simple background for our game
     game.stage.backgroundColor = "#77b5fe";
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
     enemies = game.add.group();
+
     //  We will enable physics for any object that is created in this group
     platforms.enableBody = true;
+    enemies.enableBody = true;
 
     // Here we create the ground.
     var ground = platforms.create(0, game.world.height - 64, 'ground');
@@ -37,6 +37,7 @@ var createState = {
 
     //  We need to enable physics on the player
     game.physics.arcade.enable(player);
+    game.physics.arcade.enable(enemies);
 
     //  Player physics properties. Give the little guy a slight bounce.
     player.body.bounce.y = 0;
@@ -68,7 +69,7 @@ var createState = {
     }
 
     //Follow the player
-    //game.camera.follow(player);
+    game.camera.follow(player);
 
     //  The score
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
@@ -76,6 +77,4 @@ var createState = {
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
-
-  }
 };
