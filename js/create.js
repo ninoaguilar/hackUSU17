@@ -25,11 +25,11 @@ function create() {
     ground.body.immovable = true;
 
     //  Now let's create two ledges
-    var ledge = platforms.create(400, 400, 'ground');
-    ledge.body.immovable = true;
+    //var ledge = platforms.create(400, 400, 'ground');
+    //ledge.body.immovable = true;
 
-    ledge = platforms.create(-150, 250, 'ground');
-    ledge.body.immovable = true;
+    //ledge = platforms.create(-150, 250, 'ground');
+    //  ledge.body.immovable = true;
 
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'luigi',12);
@@ -54,6 +54,7 @@ function create() {
     //  We will enable physics for any star that is created in this group
     stars.enableBody = true;
     enemies.enableBody = true;
+    //platforms.enableBody = true;
 
     //  Here we'll create 12 of them evenly spaced apart
     for (var i = 0; i < 14; i++)
