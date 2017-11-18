@@ -52,6 +52,7 @@ function updatePlayer() {
       player.body.velocity.x = 150;
     }
 
+    /**/
     player.animations.play('right');
     //  Move to the right
 
