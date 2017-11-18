@@ -47,7 +47,7 @@ function create() {
     game.physics.arcade.enable(player);
 
     //  Player physics properties. Give the little guy a slight bounce.
-    player.body.bounce.y = 0.5;
+    player.body.bounce.y = 0;
     player.body.gravity.y = 400;
     player.body.collideWorldBounds = true;
 
@@ -71,7 +71,7 @@ function create() {
         star.body.gravity.y = 300;
 
         //  This just gives each star a slightly random bounce value
-        star.body.bounce.y = -1;
+        star.body.bounce.y = .2;
     }
 
     //Follow the player
@@ -80,7 +80,8 @@ function create() {
     //  The score
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
     scoreText.fixedToCamera = true;
+
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
 
-}
+};

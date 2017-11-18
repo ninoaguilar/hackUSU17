@@ -7,4 +7,4 @@ function collectStar (player, star) {
     score += 10;
     scoreText.text = 'Score: ' + score;
 
-}
+};

@@ -1,0 +1,16 @@
+var loadState = {
+
+  preload: function() {
+    // Text that will display as the loading screen
+    var loadingLabel = game.add.text(80, 150, 'loading...',
+                                    {font: '30px Courier', fill: '#fff'});
+
+    // load all assets
+    preload();
+  }
+
+  create: function() {
+    //Call start menu state
+    game.start.state('menu');
+  }
+};
