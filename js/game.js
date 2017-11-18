@@ -8,6 +8,8 @@ var stars;
 var score = 0;
 var scoreText;
 var enemies;
+var weapon;
+var fireButton;
 
 // Add game states
 game.state.add('boot', bootState);
