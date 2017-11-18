@@ -9,6 +9,20 @@ function collectStar(player, star) {
 
 };
 
+function kill(bullet, enemy) {
+
+  // Removes the star from the screen
+  enemy.kill();
+  bullet.kill();
+
+  //  Add and update the score
+  score += 10;
+  scoreText.text = 'Score: ' + score;
+
+};
+
+
+
 function kickBlock(player, block) {
   var kickKey = game.input.keyboard.addKey(Phaser.Keyboard.K);
 
