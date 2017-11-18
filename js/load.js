@@ -7,10 +7,10 @@ var loadState = {
 
     // load all assets
     preload();
-  }
+  },
 
   create: function() {
     //Call start menu state
-    game.start.state('menu');
+    game.state.start('menu');
   }
 };

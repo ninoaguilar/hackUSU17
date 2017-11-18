@@ -1,15 +1,7 @@
-var player;
-var platforms;
-var cursors;
-var counter = 0;
-var stars;
-var score = 0;
-var scoreText;
-var enemies;
-function create() {
-
+var createState = {
+  create: function() {
     //  We're going to be using physics, so enable the Arcade Physics system
-    game.physics.startSystem(Phaser.Physics.ARCADE);
+    //game.physics.startSystem(Phaser.Physics.ARCADE);
 
     // Make our game world bigger than the canvas
     game.world.setBounds(0,0, 2000, 600)
@@ -85,4 +77,5 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
 
+  }
 };

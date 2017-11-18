@@ -14,7 +14,7 @@ var menuState = {
 
     //Call the start function when the player presses W
     startKey.onDown.addOnce(this.start, this);
-  }
+  },
 
   start: function() {
     game.state.start('play');
