@@ -9,17 +9,12 @@ function collectStar(player, star) {
 
 };
 
-function createLedges() {
-  ledges = game.add.group();
-  ledges.enableBody = true;
+function kickBlock(player, block) {
+  var kickKey = game.input.keyboard.addKey(Phaser.Keyboard.K);
 
-  for (var i = 0; i < 16; i++) {
-    var ledge = ledges.create(randomIntBetween(0, game.world.width),
-      randomIntBetween(50, game.world.height - 10), 'ledge');
-  }
-
-  ledges.body.immovable = true;
-
+  kickKey.onDown.add(function() {
+    block.body.velocity.y = -200;
+  });
 };
 
 function randomIntBetween(min, max) {

@@ -1,19 +1,18 @@
 function create() {
-  //  We're going to be using physics, so enable the Arcade Physics system
-  //game.physics.startSystem(Phaser.Physics.ARCADE);
-
   // Make our game world bigger than the canvas
   game.world.setBounds(0, 0, 2000, 600)
   //  A simple background for our game
   game.stage.backgroundColor = "#77b5fe";
 
-  //  The platforms group contains the ground and the 2 ledges we can jump on
+  //  The platforms group contains the ground and the random ledges we can jump on
   platforms = game.add.group();
   enemies = game.add.group();
+  blocks = game.add.group();
 
   //  We will enable physics for any object that is created in this group
   platforms.enableBody = true;
   enemies.enableBody = true;
+  blocks.enableBody = true;
 
   // Here we create the ground.
   var ground = platforms.create(0, game.world.height - 64, 'ground');
@@ -24,12 +23,22 @@ function create() {
   //  This stops it from falling away when you jump on it
   ground.body.immovable = true;
 
-  //  Now let's create two ledges
-  var ledge = platforms.create(400, 400, 'ground');
-  ledge.body.immovable = true;
+  //  Now let's create random ledges
+  for (var i = 0; i < 7; i++) {
+    var ledge = platforms.create(randomIntBetween(0, game.world.width),
+      randomIntBetween(50, game.world.height - 80), 'ground');
+    ledge.body.immovable = true;
+  }
 
-  ledge = platforms.create(-150, 250, 'ground');
-  ledge.body.immovable = true;
+  for (var i = 0; i < 5; i++) {
+    var block = blocks.create(randomIntBetween(50, game.world.width - 500),
+      game.world.height - 150, 'block', 12);
+    block.body.bounce.y = 0.2;
+    block.body.gravity.y = 400;
+    block.body.collideWorldBounds = true;
+    block.body.drag.x = 100;
+    block.body.allowRotation = true;
+  }
 
   // The player and its settings
   player = game.add.sprite(32, game.world.height - 150, 'luigi', 12);
@@ -55,12 +64,6 @@ function create() {
   //  We will enable physics for any star that is created in this group
   stars.enableBody = true;
   enemies.enableBody = true;
-  //platforms.enableBody = true;
-
-
-  //  We will enable physics for any star that is created in this group
-  stars.enableBody = true;
-  enemies.enableBody = true;
   prize.enableBody = true;
 
   //  Here we'll create 12 of them evenly spaced apart
@@ -77,12 +80,6 @@ function create() {
 
   ledges = game.add.group();
   ledges.enableBody = true;
-
-  for (var i = 0; i < 7; i++) {
-    var ledge = platforms.create(randomIntBetween(0, game.world.width),
-      randomIntBetween(50, game.world.height - 80), 'ground');
-    ledge.body.immovable = true;
-  }
 
   //Follow the player
   game.camera.follow(player);

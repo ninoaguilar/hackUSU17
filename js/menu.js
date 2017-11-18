@@ -1,13 +1,18 @@
 var menuState = {
   create: function() {
     //Name of the game
-    var nameLabel = game.add.text(80, 80, 'Bario The Game', {
+    game.stage.backgroundColor = "#77b5fe";
+
+    var nameLabel = game.add.text(300, 80, 'Bario The Game', {
       font: '50px Arial',
-      fill: '#fff'
+      fill: '#fff',
     });
+    nameLabel.fontWeight = 'bold';
+    nameLabel.stroke = '#4a9600';
+    nameLabel.strokeThickness = 6;
 
     //Instructions to start
-    var startLabel = game.add.text(80, game.world.height - 80,
+    var startLabel = game.add.text(350, 300,
       'Press the "S" key to start', {
         font: '25px Arial',
         fill: '#fff'

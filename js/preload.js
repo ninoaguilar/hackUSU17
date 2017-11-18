@@ -4,6 +4,6 @@ function preload() {
   game.load.image('ground', 'assets/platform.png');
   game.load.image('star', 'assets/star.png');
   game.load.image('diamond', 'assets/diamond.png');
+  game.load.image('block', 'assets/block.png');
   game.load.spritesheet('luigi', 'assets/new.png', 16, 18, 11);
-
 };
