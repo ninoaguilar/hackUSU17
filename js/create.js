@@ -79,8 +79,9 @@ function create() {
 
   for (var i = 0; i < level * 10; i++) {
     var badGuy = enemies.create(randomIntBetween(100, game.world.width), 0, 'baddie');
-
-    badGuy.animations.add('left', [0, 1], 10, true);
+    badGuy.scale.setTo(.75, .75);
+    badGuy.animations.add('left', [18, 19, 20], 13, true);
+    badGuy.animations.add('right', [30, 31, 32], 13, true);
     badGuy.body.gravity.y = 300;
     badGuy.body.velocity.x = randomIntBetween(-200, 200);
   }
