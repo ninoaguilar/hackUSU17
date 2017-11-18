@@ -27,13 +27,13 @@ function create() {
   //  Now let's create random ledges
   for (var i = 0; i < 7; i++) {
     var ledge = platforms.create(randomIntBetween(0, game.world.width),
-      randomIntBetween(100, game.world.height - 85), 'ground');
+      randomIntBetween(100, game.world.height - 150), 'ground');
     ledge.body.immovable = true;
   }
 
   for (var i = 0; i < 2; i++) {
     block = blocks.create(randomIntBetween(50, game.world.width - 500),
-      game.world.height - 150, 'block', 12);
+      game.world.height - 140, 'block', 12);
     block.body.gravity.y = 400;
     block.body.collideWorldBounds = true;
     block.body.drag.x = 50;
