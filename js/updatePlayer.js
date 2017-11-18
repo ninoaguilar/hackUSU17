@@ -4,7 +4,7 @@ function updatePlayer() {
   game.physics.arcade.collide(player, platforms);
   game.physics.arcade.collide(stars, platforms);
   game.physics.arcade.collide(enemies, platforms);
-  //game.physics.arcade.collide(player, enemies);
+  game.physics.arcade.collide(enemies, enemies);
   game.physics.arcade.collide(platforms, blocks);
   game.physics.arcade.collide(player, blocks);
   game.physics.arcade.collide(blocks, blocks);
@@ -31,17 +31,13 @@ function updatePlayer() {
   player.body.velocity.x = 0;
 
   if (fireKey.isDown) {
-    if (bullets - weapon.shots > -1) {
-
-      bulletText.text = "Ammo: " + (bullets - weapon.shots);
-      if (straight) {
-        weapon.fireAngle = Phaser.ANGLE_RIGHT;
-      } else {
-        weapon.fireAngle = Phaser.ANGLE_LEFT;
-      }
-      weapon.fire();
-      //console.log("weapon fired");
+    if (straight) {
+      weapon.fireAngle = Phaser.ANGLE_RIGHT;
+    } else {
+      weapon.fireAngle = Phaser.ANGLE_LEFT;
     }
+    weapon.fire();
+    //console.log("weapon fired");
   }
 
   if (cursors.left.isDown) {
@@ -75,7 +71,7 @@ function updateEnemies() {
     enemy.animations.play('left');
     if (enemy.body.position.x < 0) {
       enemy.body.velocity.x = 150;
-    } else if (enemy.body.position.x > 800) {
+    } else if (enemy.body.position.x > 1000) {
       enemy.body.velocity.x = -150;
     }
   }, this)

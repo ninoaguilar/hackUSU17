@@ -26,14 +26,13 @@ function create() {
   //  Now let's create random ledges
   for (var i = 0; i < 7; i++) {
     var ledge = platforms.create(randomIntBetween(0, game.world.width),
-      randomIntBetween(50, game.world.height - 80), 'ground');
+      randomIntBetween(50, game.world.height - 85), 'ground');
     ledge.body.immovable = true;
   }
 
   for (var i = 0; i < 2; i++) {
     var block = blocks.create(randomIntBetween(50, game.world.width - 500),
       game.world.height - 150, 'block', 12);
-    block.body.bounce.y = 0.2;
     block.body.gravity.y = 400;
     block.body.collideWorldBounds = true;
     block.body.drag.x = 100;
@@ -78,16 +77,15 @@ function create() {
     //  This just gives each star a slightly random bounce value
     star.body.bounce.y = 0.2;
   }
-  for (var i = 0; i < 15; i++) {
-    var badGuy = enemies.create(randomIntBetween(0, 1200), randomIntBetween(0, 400), 'baddie', 1);
+  for (var i = 0; i < level * 10; i++) {
+    var badGuy = enemies.create(randomIntBetween(100, game.world.width), 0, 'baddie');
 
     badGuy.animations.add('left', [0, 1], 10, true);
     badGuy.body.gravity.y = 300;
     badGuy.body.velocity.x = -150;
-
   }
 
-  weapon = game.add.weapon(30, 'bullet', 5);
+  weapon = game.add.weapon(30, 'bullet');
 
   //weapon.fireFrom(300, 300);
   weapon.fireRate = 200;
@@ -105,7 +103,7 @@ function create() {
   livesRemaining = game.add.group();
 
   for (var i = 0; i < lives; i++) {
-    var life = livesRemaining.create(i * 40 + 20, 50, 'life');
+    var life = livesRemaining.create(i * 40 + 200, 20, 'life');
   }
 
   livesRemaining.fixedToCamera = true;

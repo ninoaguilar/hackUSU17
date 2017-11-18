@@ -13,7 +13,7 @@ var menuState = {
 
     //Instructions to start
     var startLabel = game.add.text(350, 250,
-      'INSTRUCTIONS: \n \t Arrow Keys: Move \n \t"K": Lift Blocks', {
+      'INSTRUCTIONS: \n \t Arrow Keys: Move \n \t"K": Lift Blocks \n\t "F": Fire Shots', {
         font: '25px Arial',
         fill: '#fff'
       });

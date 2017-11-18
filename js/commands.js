@@ -4,7 +4,7 @@ function collectStar(player, star) {
   star.kill();
 
   //  Add and update the score
-  bullets += 10;
+  bullets += 1;
   bulletText.text = 'Ammo: ' + (bullets - weapon.shots);
 
 };
@@ -32,19 +32,22 @@ function loseLife(player, enemies) {
   } else {
     game.state.start('lose');
   }
-
-
 }
-
-
 
 function kickBlock(player, block) {
   var kickKey = game.input.keyboard.addKey(Phaser.Keyboard.K);
 
   kickKey.onDown.add(function() {
-    block.body.velocity.y = -200;
+    if (block.body.touching.down && block.body.touching.left) {
+      block.body.velocity.y = -500;
+    } else if (block.body.touching.down && block.body.touching.right) {
+      block.body.velocity.y = -500;
+    } else if (block.body.touching.down && block.body.touching.up) {
+      block.body.velocity.y = -1000;
+    }
   });
 };
+
 
 function randomIntBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
